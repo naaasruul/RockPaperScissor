@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+
+    <title>rock paper scissor</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lets Play Rock Paper Scissor !</h1>
+      <!-- <div class="img-box">
+        <img
+          src="data:image/png;base64,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"
+          alt=""
+        />
+      </div> -->
+      <div class="opponent">
+        <div class="opponent-names">Computer</div>
+        <div class="com-selection" id="comResult"></div>
+      </div>
+      <div class="versus">VS</div>
+      <div class="user">
+        <div class="user-selection" id="userResult"></div>
+        <div class="user-names">You</div>
+      </div>
+      <div class="result" id="result"></div>
+      <div>
+        <h4>
+          You [<span id="score"> 0</span> : <span id="comScore">0 </span>]
+          Computer
+        </h4>
+      </div>
+      <div class="btn-container">
+      <button class="rock-btn" id="rock" onClick="userInput(0)">Rock</button>
+      <button class="paper-btn" id="paper" onClick="userInput(1)">Paper</button>
+      <button class="scissors-btn" id="scissors" onClick="userInput(2)">Scissor</button>
+    </div>
+      
+      <!-- <button id="computer" onClick="comInput()">Generate Button</button> -->
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- user input -->
+    <script>
+      var score = document.getElementById("score").value;
+      var score = 1;
+      var comScore = document.getElementById("comScore").value;
+      var comScore = 1;
+
+      function userInput(userSelection) {
+        // // generate random index.
+        var rps = ["Rock", "Paper", "Scissors"]; //rps[n]
+        var randomIndex = Math.floor(Math.random() * 3); // 1
+        var computer = rps[randomIndex];
+        var user = (rps[userSelection])
+        
+        document.getElementById("userResult").innerHTML =
+          user;
+        document.getElementById("comResult").innerHTML =
+          computer;
+
+        if (userSelection == 0) { //rock
+          if (randomIndex == 0) {
+            document.getElementById("result").innerHTML = "draw";
+          } else if (randomIndex == 1) {
+            document.getElementById("result").innerHTML = "you lose";
+            document.getElementById("comScore").innerHTML = comScore++;
+          } else {
+            document.getElementById("result").innerHTML = "you win";
+            document.getElementById("score").innerHTML = score++;
+          }
+        } else if (userSelection == 1) {
+          if (randomIndex == 0) {
+            document.getElementById("result").innerHTML = "You win";
+            document.getElementById("score").innerHTML = score++;
+          } else if (randomIndex == 1) {
+            document.getElementById("result").innerHTML = "draw";
+          } else {
+            document.getElementById("result").innerHTML = "you lose";
+            document.getElementById("comScore").innerHTML = comScore++;
+          }
+        } else if (userSelection == 2) {
+          if (randomIndex == 0) {
+            document.getElementById("result").innerHTML = "you lose";
+            document.getElementById("comScore").innerHTML = comScore++;
+          } else if (randomIndex == 1) {
+            document.getElementById("result").innerHTML = "you win";
+            document.getElementById("score").innerHTML = score++;
+          } else {
+            document.getElementById("result").innerHTML = "draw";
+          }
+        }
+      }
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
